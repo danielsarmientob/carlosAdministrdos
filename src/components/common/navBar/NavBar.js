@@ -5,11 +5,13 @@ import { NavLink } from 'react-router-dom';
 
 import './navBar.css';
 import { startLogout } from '../../../actions/auth';
+import { cleanData } from '../../../actions/uiActions';
 
 export const NavBar = () => {
     const dispatch= useDispatch();
     const logoutApp = ()=>{
-        dispatch(startLogout())
+        dispatch(startLogout());
+        dispatch(cleanData());
     }
     return (
         <nav className="cont-nav">

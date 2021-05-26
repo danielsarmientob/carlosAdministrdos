@@ -2,7 +2,10 @@ export const types = {
     login: '(AUTH) LOGIN',
     logout: '(AUTH) LOGOUT',
     data: '(UI) DATA',
-    personAsig: '(PE) PERSON ASIGN',
-    dataActual: '(DA) DATA ACTUAL',
-    isProcessingData: '(PD) PROCESSING DATA'
+    cleanData: '(UI) CLEAN DATA',
+    personAsig: '(UI) PERSON ASIGN',
+    dataActual: '(UI) DATA ACTUAL',
+    isProcessingData: '(UI) PROCESSING DATA',
+    archviselect: '(AE) ARCHIVE SELECT',
+    cleanArchive: '(AE) CLEAN ARCHIVE '
 }

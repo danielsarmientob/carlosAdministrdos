@@ -16,7 +16,7 @@ export const ExpandedTable = ({data}) => {
             const personWithMachineOperation = datos.filter(dataPersona => dataPersona.Operational_status !=='Retired' && dataPersona.Operational_status !== 'Non-Operational' )
             setMaquinasAsig(personWithMachineOperation)
         }
-    }, [paisElegido])
+    }, [paisElegido, Location, name])
     const columns = [
         {
             name: 'Número de Serie',

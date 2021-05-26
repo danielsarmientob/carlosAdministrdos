@@ -72,3 +72,12 @@ export const setData=(e)=>{
             }
         }
 }
+
+export const cleanData= ()=>{
+    return async(dispatch)=>{
+        const actioClean = {
+            type: types.cleanData,
+        }
+        dispatch(actioClean)
+    }
+}

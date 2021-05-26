@@ -227,6 +227,13 @@ p{
 }
 /** Fin Home Page*/
 /** FIN LOGIN */
+/** Cont InputFile*/
+
+/** Fin Cont InputFile*/
+.cont-inputFile-HS{
+    display: flex;
+    justify-content: center;
+}
 /** TableAdmin */
 .title-report{
     text-align: center;
@@ -235,8 +242,6 @@ p{
 .cont-paises{
     margin-top: 10px;
 }
-/** Fin TableAdmin */
-
 /**Table Repeat */
 .cont-table-repeat{
     display: flex;
@@ -252,3 +257,4 @@ p{
     border: 1px solid red;
 }
 /** Table Expanded*/
+/** Fin TableAdmin */

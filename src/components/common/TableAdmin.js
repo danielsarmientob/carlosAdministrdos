@@ -1,11 +1,9 @@
 import React from 'react';
 
-import DataTable from 'react-data-table-component';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 import { types } from '../../types/types';
-import { columns } from '../../utils/columnsTable';
-import { customStyles, paginationOpciones } from '../../utils/stylesTable';
 import { TableRepeat } from './TableRepeat';
 
 export const TableAdmin = () => {

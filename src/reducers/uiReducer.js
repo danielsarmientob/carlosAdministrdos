@@ -16,7 +16,13 @@ export const uiReducer = (state=initialState, action)=>{
                 paisElegido: action.payload.data.paisElegido,
                 personasAsig: action.payload.data.personasAsig
             });
-    
+        case types.cleanData:
+            return({
+                dataUi: [],
+                nombrePais: '',
+                paisElegido: [],
+                personasAsig: [] 
+            })
         default:
             return state;
     }

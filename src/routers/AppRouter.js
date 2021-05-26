@@ -7,7 +7,6 @@ import {
     Redirect,
 } from "react-router-dom";
 
-import { HomeScreen } from '../components/views/home/HomeScreen';
 import { AuthRouter } from './AuthRouter';
 import { firebase } from '../firebase/firebase_config';
 import { useDispatch } from 'react-redux';
