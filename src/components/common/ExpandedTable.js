@@ -11,11 +11,9 @@ export const ExpandedTable = ({data}) => {
     const [maquinasAsig, setMaquinasAsig] = useState([]);
     
     useEffect(() => {
-        if(paisElegido.length != 0) {
-            console.log(paisElegido)
+        if(paisElegido.length !== 0) {
             const datos = paisElegido.filter(dataPersona => dataPersona.Assigned_to === name && dataPersona.Location === Location );
-            const personWithMachineOperation = datos.filter(dataPersona => dataPersona.Operational_status !='Retired' && dataPersona.Operational_status !== 'Non-Operational' )
-            // console.log(datos);
+            const personWithMachineOperation = datos.filter(dataPersona => dataPersona.Operational_status !=='Retired' && dataPersona.Operational_status !== 'Non-Operational' )
             setMaquinasAsig(personWithMachineOperation)
         }
     }, [paisElegido])
@@ -24,25 +22,12 @@ export const ExpandedTable = ({data}) => {
             name: 'Número de Serie',
             selector:'Serial_number',
             sortable: true,
-            // maxWidth: "100px"
+           
         },
-        // {
-        //     name: 'Nombre',
-        //     selector:'Assigned_to',
-        //     sortable: true,
-        //     // maxWidth: "100px"
-        // },
-        // {
-        //     name: 'Código ciudad',
-        //     selector:'Location',
-        //     sortable: true,
-        //     // maxWidth: "100px"
-        // },
         {
             name: 'Estado',
             selector:'Operational_status',
             sortable: true,
-            // maxWidth: "100px"
         },
     ]
     return (

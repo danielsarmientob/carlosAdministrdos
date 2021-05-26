@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { startLogout } from '../../../actions/auth';
 import { setData } from '../../../actions/uiActions';
-import { Imgcarga } from '../../common/imgCarga/Imgcarga';
 import { TableAdmin } from '../../common/TableAdmin';
 
 
@@ -22,17 +21,6 @@ export const HomeScreen = () => {
     }
     return (
         <div>
-            <div className="header-Home">
-                <span>Home Screen</span>
-                <button
-                    className="btn btn-primary"
-                    onClick={ logoutApp }
-                >
-                    salir
-                </button>
-            </div>
-            <hr/>
-            
             <input 
                 // hasSelection={fileLoaded}
                 // onInputChange={handleFileLoad}

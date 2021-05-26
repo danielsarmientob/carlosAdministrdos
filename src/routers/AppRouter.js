@@ -13,6 +13,7 @@ import { firebase } from '../firebase/firebase_config';
 import { useDispatch } from 'react-redux';
 import { login } from '../actions/auth';
 import { Imgcarga } from '../components/common/imgCarga/Imgcarga';
+import { HomeRouter } from './HomeRouter';
 
 
 export const AppRouter = () => {
@@ -42,22 +43,22 @@ export const AppRouter = () => {
         <Router>
             <div>
                 <Switch>
-                   <Route 
+                    <Route 
                         path="/auth" 
-                        component = {
-                            (isLoggedIn) 
-                            ? (HomeScreen)
-                            : ( AuthRouter) 
-                        }
-                   />
+                        component = {(props)=>(
+                            (isLoggedIn)
+                            ? (<Redirect to='/home/paises'/>) 
+                            : (<AuthRouter {...props}/>)
+                        )}
+                    />
                    <Route 
-                        exact 
+                        
                         path="/" 
-                        component = { 
-                            (isLoggedIn) 
-                            ? (HomeScreen)
-                            : ( AuthRouter) 
-                        }
+                        component = {(props)=>(
+                            (isLoggedIn)
+                            ? (<HomeRouter {...props}/>)
+                            : (<Redirect to='/auth/login'/>) 
+                        )}
                     />
                    <Redirect to="/auth/login"/>
                 </Switch>

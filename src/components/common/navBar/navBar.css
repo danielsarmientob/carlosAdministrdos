@@ -1,0 +1,26 @@
+.cont-nav {
+    /* display: flex; */
+    background: #000;
+    padding: 10px;
+}
+.cont-nav .nav-link-admi{
+    padding: 0;
+    margin-right: 15px;
+    list-style: none;
+    text-decoration: none;
+    color: #FFF;
+    transition: all .3s;
+}
+.cont-nav .cont-links{
+    display: flex;
+    float: right;
+}
+.cont-nav .item-activo{
+    color: #feb633 ; 
+}
+.cont-nav .nav-link-admi:hover{
+    color: #feb633 ;
+}
+.cont-nav .active{
+    color: #feb633 ;
+}
