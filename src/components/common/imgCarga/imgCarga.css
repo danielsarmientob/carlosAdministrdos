@@ -1,0 +1,14 @@
+.cont-img-carga{
+    width: 100%;
+    position: absolute;
+    display: flex;
+    height: 20%;
+    width: 20%;
+    right: 40%;
+    top: 40%;
+}
+.cont-img-carga img{
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+}

@@ -12,6 +12,8 @@ import { AuthRouter } from './AuthRouter';
 import { firebase } from '../firebase/firebase_config';
 import { useDispatch } from 'react-redux';
 import { login } from '../actions/auth';
+import { Imgcarga } from '../components/common/imgCarga/Imgcarga';
+
 
 export const AppRouter = () => {
     const dispatch = useDispatch();
@@ -32,7 +34,7 @@ export const AppRouter = () => {
     if(cheking){
         return(
             <>
-                <h1>Cargando</h1>
+                <Imgcarga/>
             </>
         )
     }

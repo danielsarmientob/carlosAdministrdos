@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { startLogout } from '../../../actions/auth';
 import { setData } from '../../../actions/uiActions';
+import { Imgcarga } from '../../common/imgCarga/Imgcarga';
 import { TableAdmin } from '../../common/TableAdmin';
 
 

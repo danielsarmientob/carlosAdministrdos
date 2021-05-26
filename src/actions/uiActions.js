@@ -1,5 +1,6 @@
-import { types } from "../types/types";
+
 import XLSX from 'xlsx';
+import { types } from "../types/types";
 
 export const setData=(e)=>{
         return async (dispatch)=>{
