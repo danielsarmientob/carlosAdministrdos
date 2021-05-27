@@ -1,7 +1,29 @@
 
 import XLSX from 'xlsx';
 import { types } from "../types/types";
-
+//-- Acquisition method: "Purchase"
+//-- Asset: "J0RLL32 - Dell LATITUDE E7440 E7440" 
+//-- Assigned to: "Santiago Malca"
+//-- Country: "Peru"
+//-- Critical: false
+//-- Form factor: "Laptop"
+//-- Function: "Dedicated"
+//-- Installed: 42204.083333333336
+//-- Last Logged In User: "H118830"
+//-- Location: "PU02"
+//-- Manufacturer: "Dell"
+//-- Model ID: "Dell LATITUDE E7440 E7440"
+//-- Name: "PU02LTJ0RLL32"
+//-- Region: "CANLA"
+//-- Serial number: "J0RLL32"
+//-- State: "Retired"  Operational_status
+//-- Substate: "disposed"  Substatus
+// Support Vendor: "HON CORP"
+//-- Support group: "Site Desktop Support (CANLA:CI08 / CI12)"
+//-- UID_Number: "4b0ab589dbf6c30050afd7795e9619ab"
+//-- Updated: 44271.54759259259
+//-- Updated by: "admin"
+// User ID: "H118830"
 export const setData=(e)=>{
         return async (dispatch)=>{
             let dataJson = [];
@@ -25,11 +47,23 @@ export const setData=(e)=>{
                                 Location: element['Location'],
                                 Manufacturer: element['Manufacturer'],
                                 Name: element['Name'],
-                                Operational_status: element['Operational status'],
-                                Schedule: element['Schedule'],
+                                Operational_status: element['State'],
+                                // Schedule: element['Schedule'],
                                 Serial_number: element['Serial number'],
-                                Substatus:element['Substatus'],
+                                Substatus:element['Substate'],
                                 Support_group: element['Support group'],
+                                Acquisition_method: element['Acquisition method'],
+                                Country: element['Country'],
+                                Form_factor: element['Form factor'],
+                                Function: element['Function'],
+                                Installed: element['Installed'],
+                                //Last_Logged_In_User: element['Last Logged In User'],
+                                //Model_ID: element['Model ID'],
+                                //Region: element['Region'],
+                                UID_Number: element['UID_Number'],
+                                Updated: element['Updated'],
+                                Updated_by: element['Updated by'],
+                                User_ID: element['User ID']
                             }
                         });
                         const json = {
