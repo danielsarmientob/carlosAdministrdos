@@ -2,6 +2,8 @@ import React, { useCallback, useEffect, useState } from 'react';
 
 import { useSelector } from 'react-redux';
 import { GraficoBarras } from '../../common/GraficoBarras';
+import { TituloGraficos } from '../../common/TituloGraficos';
+import { GraficoMissing } from './GraficoMissing';
 
 export const HomeGeneral = () => {
     const pe = useSelector(state => state.pe);
@@ -14,8 +16,8 @@ export const HomeGeneral = () => {
     const numbersPeopleWithVariousMachines = useCallback(
         async (namesPersons,index)=>{
             let cont_person  = 0; 
-            namesPersons.forEach(name => {
-                const persons = dataUi[index]['data'].filter(({User_ID, Operational_status})=> name === User_ID && Operational_status !== 'Retired' && Operational_status !== 'Non-Operational')
+            namesPersons.forEach(userId => {
+                const persons = dataUi[index]['data'].filter(({User_ID, Operational_status})=> userId === User_ID && (Operational_status === 'In use' || Operational_status === 'In stock'))
                 if( persons.length > 1) cont_person = cont_person + 1;
             });
             return cont_person;
@@ -39,17 +41,26 @@ export const HomeGeneral = () => {
                 }
             });
         }
+
     }, [pe,numbersPeopleWithVariousMachines])
     return (
         <div>
             <h1>General</h1>
-            <div className="row">
-                <div className="m-2 col-12 col-sm-8 col-md-6  col-lg-6">
-                    <p>Porcentaje del número de personas con más de una máquina por país</p>
+            <div className="row justify-content-center">
+                <div className=" col-12 col-sm-10 col-md-6  col-lg-5">
+                    <TituloGraficos
+                        titulo={'Porcentaje del número de personas con más de una computadora por país'}
+                    />
                     <GraficoBarras 
                         data={ dataPeopleVariousMachines.dataForCountry }
                         namesLabels={ dataPeopleVariousMachines.namesCountrys }
                     />
+                </div>
+                <div className=" col-12 col-sm-10 col-md-6  col-lg-5">
+                    <TituloGraficos
+                        titulo={'Cantidad de computadoras extraviadas'}
+                    />
+                    <GraficoMissing/>
                 </div>
             </div>
         </div>

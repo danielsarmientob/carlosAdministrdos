@@ -13,7 +13,7 @@ export const ExpandedTable = ({data}) => {
     useEffect(() => {
         if(paisElegido.length !== 0) {
             const datos = paisElegido.filter(dataPersona => dataPersona.User_ID === user_id && dataPersona.Location === Location );
-            const personWithMachineOperation = datos.filter(dataPersona => dataPersona.Operational_status !=='Retired' && dataPersona.Operational_status !== 'Non-Operational' )
+            const personWithMachineOperation = datos.filter(dataPersona => dataPersona.Operational_status ==='In use' || dataPersona.Operational_status === 'In stock' )
             setMaquinasAsig(personWithMachineOperation)
         }
     }, [paisElegido, Location, user_id])

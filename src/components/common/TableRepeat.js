@@ -22,7 +22,7 @@ export const TableRepeat = ({paisName=''}) => {
                 let codigosCity = new Set();
                 let name = '';
                 paisElegido.forEach((data)=>{
-                    if(data['User_ID'] === user_id && data['Operational_status']!== 'Retired' && data['Operational_status']!== 'Non-Operational'){
+                    if(data['User_ID'] === user_id && (data['Operational_status'] === 'In use' || data['Operational_status'] === 'In stock')){
                         name = data['Assigned_to'];
                         codigosCity.add(data['Location'])                    
                         cont = cont +1;
@@ -33,7 +33,7 @@ export const TableRepeat = ({paisName=''}) => {
                         for(let codigoCity of codigosCity){
                             let cont2 = 0;
                             paisElegido.forEach((data)=>{
-                                if(data['User_ID'] === user_id && data['Operational_status']!== 'Retired' && data['Operational_status']!== 'Non-Operational' && data['Location'] === codigoCity){              
+                                if(data['User_ID'] === user_id && data['Location'] === codigoCity && (data['Operational_status'] === 'In use' || data['Operational_status'] === 'In stock' )){              
                                     cont2 = cont2 +1;
                                 }
                             })
