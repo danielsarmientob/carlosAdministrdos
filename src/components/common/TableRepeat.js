@@ -17,11 +17,13 @@ export const TableRepeat = ({paisName=''}) => {
         ()=>{
             let person = [];
             let personsVariasCitys = [];
-            personasAsig.forEach((name)=>{
+            personasAsig.forEach((user_id)=>{
                 let cont = 0;
                 let codigosCity = new Set();
+                let name = '';
                 paisElegido.forEach((data)=>{
-                    if(data['Assigned_to'] === name && data['Operational_status']!== 'Retired' && data['Operational_status']!== 'Non-Operational'){
+                    if(data['User_ID'] === user_id && data['Operational_status']!== 'Retired' && data['Operational_status']!== 'Non-Operational'){
+                        name = data['Assigned_to'];
                         codigosCity.add(data['Location'])                    
                         cont = cont +1;
                     }
@@ -31,13 +33,14 @@ export const TableRepeat = ({paisName=''}) => {
                         for(let codigoCity of codigosCity){
                             let cont2 = 0;
                             paisElegido.forEach((data)=>{
-                                if(data['Assigned_to'] === name && data['Operational_status']!== 'Retired' && data['Operational_status']!== 'Non-Operational' && data['Location'] === codigoCity){              
+                                if(data['User_ID'] === user_id && data['Operational_status']!== 'Retired' && data['Operational_status']!== 'Non-Operational' && data['Location'] === codigoCity){              
                                     cont2 = cont2 +1;
                                 }
                             })
                             const dato = {
                                 cont: cont2,
                                 name,
+                                user_id,
                                 Location: codigoCity,         
                             }
                             personsVariasCitys = [...personsVariasCitys, dato]
@@ -46,6 +49,7 @@ export const TableRepeat = ({paisName=''}) => {
                         const dato = {
                             cont,
                             name,
+                            user_id,
                             Location: Array.from(codigosCity)[0],
                         }
                         person = [...person,dato]
@@ -78,6 +82,12 @@ export const TableRepeat = ({paisName=''}) => {
             // maxWidth: "100px"
         },
         {
+            name: 'User id',
+            selector:'user_id',
+            sortable: true,
+            // maxWidth: "100px"
+        },
+        {
             name: 'Nombre',
             selector:'name',
             sortable: true,
@@ -102,7 +112,7 @@ export const TableRepeat = ({paisName=''}) => {
                 {/* <div className="col-6"> */}
                 {
                     (dataPer.length !== 0)
-                    ?  <div className="table-responsive table-repeat" style={{padding:"10px", maxWidth:"500px"}}>
+                    ?  <div className="table-responsive table-repeat" style={{padding:"10px", maxWidth:"600px"}}>
                                 <DataTable
                                     columns={ columns }
                                     data = { dataPer }
@@ -124,7 +134,7 @@ export const TableRepeat = ({paisName=''}) => {
                 {/* <div className="col-6"> */}
                 {
                     (personasVariasCitys.length !== 0)
-                    ?    <div className="table-responsive table-repeat" style={{padding:"10px", maxWidth:"500px"}}>
+                    ?    <div className="table-responsive table-repeat" style={{padding:"10px", maxWidth:"600px"}}>
                             <DataTable
                                 columns={ columns }
                                 data = { personasVariasCitys }

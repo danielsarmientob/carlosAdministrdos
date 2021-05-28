@@ -6,17 +6,17 @@ import DataTable from 'react-data-table-component';
 import { customStyles, paginationOpciones } from '../../utils/stylesTable';
 
 export const ExpandedTable = ({data}) => {
-    const { name, Location } = data;
+    const { user_id, Location } = data;
     const { paisElegido } = useSelector(state => state.ui);
     const [maquinasAsig, setMaquinasAsig] = useState([]);
     
     useEffect(() => {
         if(paisElegido.length !== 0) {
-            const datos = paisElegido.filter(dataPersona => dataPersona.Assigned_to === name && dataPersona.Location === Location );
+            const datos = paisElegido.filter(dataPersona => dataPersona.User_ID === user_id && dataPersona.Location === Location );
             const personWithMachineOperation = datos.filter(dataPersona => dataPersona.Operational_status !=='Retired' && dataPersona.Operational_status !== 'Non-Operational' )
             setMaquinasAsig(personWithMachineOperation)
         }
-    }, [paisElegido, Location, name])
+    }, [paisElegido, Location, user_id])
     const columns = [
         {
             name: 'Número de Serie',

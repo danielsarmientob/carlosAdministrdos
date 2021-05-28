@@ -15,7 +15,7 @@ export const HomeGeneral = () => {
         async (namesPersons,index)=>{
             let cont_person  = 0; 
             namesPersons.forEach(name => {
-                const persons = dataUi[index]['data'].filter(({Assigned_to, Operational_status})=> name === Assigned_to && Operational_status !== 'Retired' && Operational_status !== 'Non-Operational')
+                const persons = dataUi[index]['data'].filter(({User_ID, Operational_status})=> name === User_ID && Operational_status !== 'Retired' && Operational_status !== 'Non-Operational')
                 if( persons.length > 1) cont_person = cont_person + 1;
             });
             return cont_person;

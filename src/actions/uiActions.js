@@ -40,7 +40,7 @@ export const setData=(e)=>{
                         const dJson = XLSX.utils.sheet_to_json(worKbook.Sheets[sheetName]);
                         const formatDJson = dJson.map((element)=>{
                             if(element['Assigned to'] !== '')
-                                namePerson = [...namePerson,element['Assigned to']];
+                                namePerson = [...namePerson,element['User ID']];
                             return {
                                 Asset: element['Asset'],
                                 Assigned_to: element['Assigned to'],
