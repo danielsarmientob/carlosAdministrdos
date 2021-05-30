@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { types } from '../../types/types';
 import { TableRepeat } from './TableRepeat';
+import { TableStock } from './TableStock';
 
 export const TableAdmin = () => {
     // Asset: "MXL0261C22 - HEWLETT-PACKARD CO ELITE 8000 SFF"
@@ -74,6 +75,7 @@ export const TableAdmin = () => {
                 : <div></div>
             } */}
             <TableRepeat/>
+            <TableStock/>
         </>
     )
 }

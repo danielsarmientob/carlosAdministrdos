@@ -5,18 +5,24 @@ import DataTable from 'react-data-table-component';
 
 import { customStyles, paginationOpciones } from '../../utils/stylesTable';
 
-export const ExpandedTable = ({data}) => {
+export const ExpandedTable = ({data, filterOnlyStock}) => {
     const { user_id, Location } = data;
     const { paisElegido } = useSelector(state => state.ui);
     const [maquinasAsig, setMaquinasAsig] = useState([]);
+    console.log(filterOnlyStock)
     
     useEffect(() => {
         if(paisElegido.length !== 0) {
             const datos = paisElegido.filter(dataPersona => dataPersona.User_ID === user_id && dataPersona.Location === Location );
-            const personWithMachineOperation = datos.filter(dataPersona => dataPersona.Operational_status ==='In use' || dataPersona.Operational_status === 'In stock' )
-            setMaquinasAsig(personWithMachineOperation)
+            if(filterOnlyStock){
+                const personWithMachineOperation = datos.filter(dataPersona => dataPersona.Operational_status === 'In stock' )
+                setMaquinasAsig(personWithMachineOperation)
+            }else{
+                const personWithMachineOperation = datos.filter(dataPersona => dataPersona.Operational_status ==='In use' || dataPersona.Operational_status === 'In stock' )
+                setMaquinasAsig(personWithMachineOperation)
+            }
         }
-    }, [paisElegido, Location, user_id])
+    }, [paisElegido, Location, user_id,filterOnlyStock])
     const columns = [
         {
             name: 'Número de Serie',

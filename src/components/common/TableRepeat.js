@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 
 import { useSelector } from 'react-redux';
 import DataTable from 'react-data-table-component';
+
 import { customStyles, paginationOpciones } from '../../utils/stylesTable';
 import { ExpandedTable } from './ExpandedTable';
 
@@ -9,7 +10,7 @@ import { ExpandedTable } from './ExpandedTable';
 
 export const TableRepeat = ({paisName=''}) => {
     // const personAsig = useSelector(state => state.pe);
-    const {dataUi, paisElegido, personasAsig}= useSelector(state => state.ui);
+    const { paisElegido, personasAsig}= useSelector(state => state.ui);
     const [dataPer, setDataPer] = useState([]);
     const [personasVariasCitys, setPersonasVariasCitys] = useState([]);
     
@@ -73,7 +74,7 @@ export const TableRepeat = ({paisName=''}) => {
     )
     useEffect(() => {
         filter();
-    }, [paisName,dataUi,filter]);
+    }, [paisName,filter]);
     const columns = [
         {
             name: 'Número de PCS',
@@ -125,7 +126,7 @@ export const TableRepeat = ({paisName=''}) => {
                                     dense
                                     expandableRows
                                     expandableRowDisabled={row => row.disabled}
-                                    expandableRowsComponent={ <ExpandedTable /> }
+                                    expandableRowsComponent={ <ExpandedTable filterOnlyStock={ false }/> }
                                 />
                         </div>
                     : <div></div>   
@@ -147,7 +148,7 @@ export const TableRepeat = ({paisName=''}) => {
                                 dense
                                 expandableRows
                                 expandableRowDisabled={row => row.disabled}
-                                expandableRowsComponent={ <ExpandedTable /> }
+                                expandableRowsComponent={ <ExpandedTable  filterOnlyStock={ false } /> }
                             />
                         </div>
                     : <div></div>
