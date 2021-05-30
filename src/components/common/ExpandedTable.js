@@ -9,8 +9,6 @@ export const ExpandedTable = ({data, filterOnlyStock}) => {
     const { user_id, Location } = data;
     const { paisElegido } = useSelector(state => state.ui);
     const [maquinasAsig, setMaquinasAsig] = useState([]);
-    console.log(filterOnlyStock)
-    
     useEffect(() => {
         if(paisElegido.length !== 0) {
             const datos = paisElegido.filter(dataPersona => dataPersona.User_ID === user_id && dataPersona.Location === Location );

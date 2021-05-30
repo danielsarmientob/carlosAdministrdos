@@ -1,9 +1,14 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
 import { useSelector } from 'react-redux';
+
 import { GraficoBarras } from '../../common/GraficoBarras';
+import { GraficoBarrasMissing } from '../../common/GraficoBarrasMissing';
+import { GraficoBarrasOnOrder } from '../../common/GraficoBarrasOnOrder';
+import { GraficoBarrasStock } from '../../common/GraficoBarrasStock';
 import { TituloGraficos } from '../../common/TituloGraficos';
-import { GraficoMissing } from './GraficoMissing';
+import { Graficar } from './Graficar';
+
 
 export const HomeGeneral = () => {
     const pe = useSelector(state => state.pe);
@@ -60,7 +65,28 @@ export const HomeGeneral = () => {
                     <TituloGraficos
                         titulo={'Cantidad de computadoras extraviadas'}
                     />
-                    <GraficoMissing/>
+                    <Graficar
+                        filtro = 'Missing'
+                        GraficoComponent={ GraficoBarrasMissing }
+                    />
+                </div>
+                <div className=" col-12 col-sm-10 col-md-6  col-lg-5">
+                    <TituloGraficos
+                        titulo={'Cantidad de computadoras en stock'}
+                    />
+                    <Graficar
+                        filtro= 'In stock'
+                        GraficoComponent={ GraficoBarrasStock }
+                    />
+                </div>
+                <div className=" col-12 col-sm-10 col-md-6  col-lg-5">
+                    <TituloGraficos
+                        titulo={'Cantidad de computadoras pedidas'}
+                    />
+                    <Graficar
+                        filtro= 'On order'
+                        GraficoComponent={ GraficoBarrasOnOrder }
+                    />
                 </div>
             </div>
         </div>
