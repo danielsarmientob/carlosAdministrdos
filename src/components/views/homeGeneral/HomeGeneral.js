@@ -7,7 +7,7 @@ import { GraficoBarrasInUse } from '../../common/GraficoBarrasInUse';
 import { GraficoBarrasMissing } from '../../common/GraficoBarrasMissing';
 import { GraficoBarrasOnOrder } from '../../common/GraficoBarrasOnOrder';
 import { GraficoBarrasStock } from '../../common/GraficoBarrasStock';
-import { TituloGraficos } from '../../common/TituloGraficos';
+import { TituloGraficos } from '../../common/titulosGrafico.js/TituloGraficos';
 import { Graficar } from './Graficar';
 
 
@@ -49,10 +49,9 @@ export const HomeGeneral = () => {
 
     }, [pe,numbersPeopleWithVariousMachines])
     return (
-        <div>
-            <h1>General</h1>
+        <div className="cont-graficos-general">
             <div className="row justify-content-center">
-                <div className=" col-12 col-sm-10 col-md-6  col-lg-5">
+                <div className=" col-12 col-sm-10 col-md-6  col-lg-5 grafico-general">
                     <TituloGraficos
                         titulo={'Porcentaje del número de personas con más de una computadora por país'}
                     />
@@ -61,7 +60,7 @@ export const HomeGeneral = () => {
                         namesLabels={ dataPeopleVariousMachines.namesCountrys }
                     />
                 </div>
-                <div className=" col-12 col-sm-10 col-md-6  col-lg-5">
+                <div className=" col-12 col-sm-10 col-md-6  col-lg-5 grafico-general">
                     <TituloGraficos
                         titulo={'Cantidad de computadoras extraviadas'}
                     />
@@ -70,7 +69,7 @@ export const HomeGeneral = () => {
                         GraficoComponent={ GraficoBarrasMissing }
                     />
                 </div>
-                <div className=" col-12 col-sm-10 col-md-6  col-lg-5">
+                <div className=" col-12 col-sm-10 col-md-6  col-lg-5 grafico-general">
                     <TituloGraficos
                         titulo={'Cantidad de computadoras en stock'}
                     />
@@ -79,7 +78,7 @@ export const HomeGeneral = () => {
                         GraficoComponent={ GraficoBarrasStock }
                     />
                 </div>
-                <div className=" col-12 col-sm-10 col-md-6  col-lg-5">
+                <div className=" col-12 col-sm-10 col-md-6  col-lg-5 grafico-general">
                     <TituloGraficos
                         titulo={'Cantidad de computadoras con Order-PO'}
                     />
@@ -88,7 +87,7 @@ export const HomeGeneral = () => {
                         GraficoComponent={ GraficoBarrasOnOrder }
                     />
                 </div>
-                <div className=" col-12 col-sm-10 col-md-6  col-lg-5">
+                <div className=" col-12 col-sm-10 col-md-6  col-lg-5 grafico-general">
                     <TituloGraficos
                         titulo={'Cantidad de computadoras en Uso'}
                     />

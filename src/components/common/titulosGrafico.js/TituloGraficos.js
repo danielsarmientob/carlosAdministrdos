@@ -1,9 +1,10 @@
 import React from 'react';
 
+import './tituloGraficos.css';
 export const TituloGraficos = ({titulo}) => {
     return (
         <>
-            <div style={{fontSize: "12px", height: "15px"}}>
+            <div className="titulo-grafico">
                 <p>{ titulo }</p>
             </div>  
         </>

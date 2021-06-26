@@ -7,6 +7,14 @@
 p{
     margin: 0;
 }
+
+.cont-graficos-general {
+    margin-top: 25px;
+}
+.grafico-general {
+    border: 1px solid red;
+    margin: 0 0 1px 1px;
+}
 /* FIN GENERAL */
 
 
@@ -241,6 +249,7 @@ p{
 }
 .cont-paises{
     margin-top: 10px;
+    margin-left: 10px;
 }
 /**Table Repeat */
 .cont-table-repeat{
@@ -258,3 +267,5 @@ p{
 }
 /** Table Expanded*/
 /** Fin TableAdmin */
+
+
