@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { GraficoBarras } from '../../common/GraficoBarras';
+import { GraficoBarrasInUse } from '../../common/GraficoBarrasInUse';
 import { GraficoBarrasMissing } from '../../common/GraficoBarrasMissing';
 import { GraficoBarrasOnOrder } from '../../common/GraficoBarrasOnOrder';
 import { GraficoBarrasStock } from '../../common/GraficoBarrasStock';
@@ -17,7 +18,6 @@ export const HomeGeneral = () => {
         namesCountrys: [],
         dataForCountry: []
     });
-    console.log(dataPeopleVariousMachines);
     const numbersPeopleWithVariousMachines = useCallback(
         async (namesPersons,index)=>{
             let cont_person  = 0; 
@@ -81,11 +81,20 @@ export const HomeGeneral = () => {
                 </div>
                 <div className=" col-12 col-sm-10 col-md-6  col-lg-5">
                     <TituloGraficos
-                        titulo={'Cantidad de computadoras pedidas'}
+                        titulo={'Cantidad de computadoras con Order-PO'}
                     />
                     <Graficar
                         filtro= 'On order'
                         GraficoComponent={ GraficoBarrasOnOrder }
+                    />
+                </div>
+                <div className=" col-12 col-sm-10 col-md-6  col-lg-5">
+                    <TituloGraficos
+                        titulo={'Cantidad de computadoras en Uso'}
+                    />
+                    <Graficar
+                        filtro= 'In use'
+                        GraficoComponent={ GraficoBarrasInUse }
                     />
                 </div>
             </div>

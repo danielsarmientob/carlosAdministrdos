@@ -1,18 +1,19 @@
 import React, { useCallback, useLayoutEffect } from 'react';
 import {Chart, registerables} from 'chart.js'
 Chart.register(...registerables);
-let myChart;
-export const GraficoBarras = ({ data, namesLabels }) => {
+let myChartInUse;
+
+export const GraficoBarrasInUse = ({ data, namesLabels }) => {
     const createGrafica = useCallback(
         () => {
-            const ctx = document.getElementById('myChart');
-            if (typeof myChart !== "undefined") myChart.destroy();
-            myChart = new Chart(ctx, {
+            const ctx = document.getElementById('myChartInUse');
+            if (typeof myChartInUse !== "undefined") myChartInUse.destroy();
+            myChartInUse = new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels: namesLabels,
                     datasets: [{
-                        label: 'porcentaje',
+                        label: 'cantidad',
                         data: data,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
@@ -48,6 +49,6 @@ export const GraficoBarras = ({ data, namesLabels }) => {
         createGrafica();
     }, [data, createGrafica])
     return (
-        <canvas id="myChart"  height="150"></canvas>
+        <canvas id="myChartInUse"  height="150"></canvas>
     )
 }
