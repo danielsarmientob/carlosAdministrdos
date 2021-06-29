@@ -58,11 +58,11 @@ export const setData=(e)=>{
                                 Function: element['Function'],
                                 Installed: element['Installed'],
                                 //Last_Logged_In_User: element['Last Logged In User'],
-                                //Model_ID: element['Model ID'],
+                                Model_ID: element['Model ID'],
                                 //Region: element['Region'],
                                 UID_Number: element['UID_Number'],
-                                Updated: element['Updated'],
-                                Updated_by: element['Updated by'],
+                                // Updated: element['Updated'],
+                                // Updated_by: element['Updated by'],
                                 User_ID: element['User ID']
                             }
                         });

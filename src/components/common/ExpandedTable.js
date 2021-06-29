@@ -33,6 +33,11 @@ export const ExpandedTable = ({data, filterOnlyStock}) => {
             selector:'Operational_status',
             sortable: true,
         },
+        {
+            name: 'Modelo',
+            selector:'Model_ID',
+            sortable: true,
+        },
     ]
     return (
         <div>
