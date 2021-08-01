@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectArchive } from '../../../actions/aeAction';
 
 import { setData } from '../../../actions/uiActions';
-import './inputFile.css'
+import { BtnFile } from '../btnFile/BtnFile';
+
 
 export const InputFile = () => {
     const archivoSelect = useSelector(state => state.ae);
@@ -15,32 +16,12 @@ export const InputFile = () => {
             dispatch(selectArchive(nameAux, '','cambiar archivo'));
         }
     }
-    const getFile = (idInput)=>{
-        document.getElementById(idInput).click();
-    }
     return (
         <div>
-            <div className="cont-archivos" id="2">
-                <div  className='cont-input-if'>
-                    <div className="cont-rnp">
-                        <div>
-                            <p className='nombre-archivoSelect-if'>{ archivoSelect['nombre'] }</p>
-                        </div>
-                        <div className="inputFile-if">
-                            <input id="upfile2" type="file" onChange={ handleFileLoad }/>
-                        </div>
-                        <div 
-                            className={`file2 ${archivoSelect['fileSelect']} labelArchivo`}  
-                            id="input2" 
-                            onClick={() => getFile('upfile2')}
-                        >
-                            { archivoSelect['estado'] }
-                        </div>
-                        
-                        
-                    </div>
-                </div>
-            </div>
+            <BtnFile 
+                archivoSelect = {archivoSelect}
+                handleFileLoad = {handleFileLoad}
+            />
         </div>
     )
 }

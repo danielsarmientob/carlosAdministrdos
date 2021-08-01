@@ -45,6 +45,15 @@ export const NavBar = () => {
                         general
                     </NavLink>
 
+                    <NavLink 
+                        activeClassName="active"
+                        className={`nav-link-admi `} 
+                        exact
+                        to="/home/filtro"
+                    >
+                        filtro
+                    </NavLink>
+
                      <NavLink 
                         activeClassName="active"
                         className="nav-link-admi" 

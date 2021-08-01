@@ -7,5 +7,7 @@ export const types = {
     dataActual: '(UI) DATA ACTUAL',
     isProcessingData: '(UI) PROCESSING DATA',
     archviselect: '(AE) ARCHIVE SELECT',
-    cleanArchive: '(AE) CLEAN ARCHIVE '
+    cleanArchive: '(AE) CLEAN ARCHIVE ',
+    filtro: '(AE) FILTRO ELEGIDO',
+    dataUif: '(UI) DATA FILTRO'
 }
