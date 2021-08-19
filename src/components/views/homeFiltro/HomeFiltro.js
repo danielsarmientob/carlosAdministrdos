@@ -29,7 +29,7 @@ export const HomeFiltro = () => {
                     pais['data'].forEach(elemen => {
                         //WKSOPS_Username,Service_Tag
                         //Serial_number,User_ID
-                        const pc = dataFiltro['dataUif'][0]['data'].filter(({WKSOPS_Username,Service_Tag})=> Service_Tag === elemen['Serial_number'] && WKSOPS_Username !== elemen['User_ID'] && (elemen['Operational_status'] === 'In use' || elemen['Operational_status'] === 'In stock'));
+                        const pc = dataFiltro['dataUif'][0]['data'].filter(({WKSOPS_Username,Service_Tag})=> Service_Tag.toString().toUpperCase() === elemen['Serial_number'].toUpperCase() && WKSOPS_Username.toString().toUpperCase() !== elemen['User_ID'].toUpperCase() && (elemen['Operational_status'] === 'In use' || elemen['Operational_status'] === 'In stock'));
                         if(pc.length !== 0){
                             const dato = {
                                 name_pais: pais['sheetName'],
