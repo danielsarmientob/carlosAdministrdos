@@ -4,6 +4,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { types } from '../../types/types';
+import { TableModelId } from './TableModelId';
 import { TableRepeat } from './TableRepeat';
 import { TableStock } from './TableStock';
 
@@ -76,6 +77,7 @@ export const TableAdmin = () => {
             } */}
             <TableRepeat/>
             <TableStock/>
+            <TableModelId/>
         </>
     )
 }

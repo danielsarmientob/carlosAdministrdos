@@ -28,6 +28,7 @@ export const setData=(e)=>{
         return async (dispatch)=>{
             let dataJson = [];
             let namePersonAsign = [];
+
             try {
                 let file = e.target.files[0];
                 let reader = new FileReader();
@@ -37,10 +38,13 @@ export const setData=(e)=>{
                     const worKbook =  XLSX.read(data, {type: "array"});
                     worKbook.SheetNames.forEach((sheetName)=>{
                         let namePerson = [];
+                        let models = [];
+                        let codigoCiudades = [];
                         const dJson = XLSX.utils.sheet_to_json(worKbook.Sheets[sheetName]);
                         const formatDJson = dJson.map((element)=>{
-                            if(element['Assigned to'] !== '')
-                                namePerson = [...namePerson,element['User ID']];
+                            if(element['Assigned to'] !== '') namePerson = [...namePerson,element['User ID']];
+                            if(element['Model ID'] !== '') models = [...models, element['Model ID'].toUpperCase()];
+                            if(element['Location'] !== '') codigoCiudades = [...codigoCiudades, element['Location']];
                             return {
                                 Asset: element['Asset'],
                                 Assigned_to: element['Assigned to'],
@@ -50,15 +54,15 @@ export const setData=(e)=>{
                                 Operational_status: element['State'],
                                 // Schedule: element['Schedule'],
                                 Serial_number: element['Serial number'],
-                                Substatus:element['Substate'],
-                                Support_group: element['Support group'],
-                                Acquisition_method: element['Acquisition method'],
+                                //Substatus:element['Substate'],
+                                //Support_group: element['Support group'],
+                                //Acquisition_method: element['Acquisition method'],
                                 Country: element['Country'],
-                                Form_factor: element['Form factor'],
-                                Function: element['Function'],
-                                Installed: element['Installed'],
+                                //Form_factor: element['Form factor'],
+                                //Function: element['Function'],
+                                //Installed: element['Installed'],
                                 //Last_Logged_In_User: element['Last Logged In User'],
-                                Model_ID: element['Model ID'],
+                                Model_ID: element['Model ID'].toUpperCase(),
                                 //Region: element['Region'],
                                 UID_Number: element['UID_Number'],
                                 // Updated: element['Updated'],
@@ -66,13 +70,16 @@ export const setData=(e)=>{
                                 User_ID: element['User ID']
                             }
                         });
+                        let personConjunto = new Set(namePerson);
+                        let modelConjunto = new Set(models);
+                        let codigoCiudadCojunto = new Set(codigoCiudades);
                         const json = {
                             sheetName,
-                            data: formatDJson
+                            data: formatDJson,
+                            models: Array.from(modelConjunto),
+                            codigosCity: Array.from(codigoCiudadCojunto)
                         }
                         dataJson = [...dataJson,json];
-                        
-                        let personConjunto = new Set(namePerson);
                         
                         const jsonAsign = {
                             sheetName,
