@@ -8,9 +8,8 @@ export const TableModelId = () => {
     const {dataUi,paisElegido,nombrePais} = useSelector(state => state.ui);
     const [amountModels, setAmountModels] = useState([]);
 
-    function convertArrayOfObjectsToCSV(data) {
+    const convertArrayOfObjectsToCSV = (data)=>{
         let result;
-    
         const columnDelimiter = ',';
         const lineDelimiter = '\n';
         const keys = Object.keys(data[0]);
@@ -32,24 +31,26 @@ export const TableModelId = () => {
         });
         return result;
     }
-    function downloadCSV(array) {
-        const link = document.createElement('a');
-        let csv = convertArrayOfObjectsToCSV(array);
-        console.log(csv)
-        if (csv == null) return;
-    
-        const filename = 'export.csv';
-    
-        if (!csv.match(/^data:text\/csv/i)) {
-            csv = `data:text/csv;charset=utf-8,${csv}`;
-        }
-    
-        link.setAttribute('href', encodeURI(csv));
-        link.setAttribute('download', filename);
-        link.click();
-    }
+    const downloadCSV = useCallback(
+        (array) => {
+            const link = document.createElement('a');
+            let csv = convertArrayOfObjectsToCSV(array);
+            if (csv == null) return;
+        
+            const filename = 'export.csv';
+        
+            if (!csv.match(/^data:text\/csv/i)) {
+                csv = `data:text/csv;charset=utf-8,${csv}`;
+            }
+        
+            link.setAttribute('href', encodeURI(csv));
+            link.setAttribute('download', filename);
+            link.click();
+        },
+        [],
+    )
     const Export = ({ onExport }) => <button onClick={e => onExport(e.target.value)}>Export</button>;
-    const actionsMemo = useMemo(() => <Export onExport={() => downloadCSV(amountModels)} />, []);
+    const actionsMemo = useMemo(() => <Export onExport={() => downloadCSV(amountModels)} />, [amountModels,downloadCSV]);
 
     const modeloId = useCallback(
         () => {
