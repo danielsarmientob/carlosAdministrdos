@@ -19,18 +19,18 @@ export const AppRouter = () => {
     const dispatch = useDispatch();
     const [cheking, setCheking] = useState(false);
     const [isLoggedIn , setIsloggedIn] = useState(true);    
-    useEffect(() => {
-        firebase.auth().onAuthStateChanged((user)=>{
-            if(user?.uid){
-                dispatch(login(user.uid,user.displayName))     
-                setIsloggedIn(true);
-            }else{
-                console.log('no hay madie logeado');
-                setIsloggedIn(false);
-            }
-            setCheking(false);
-        });
-    },[dispatch])
+    // useEffect(() => {
+    //     firebase.auth().onAuthStateChanged((user)=>{
+    //         if(user?.uid){
+    //             dispatch(login(user.uid,user.displayName))     
+    //             setIsloggedIn(true);
+    //         }else{
+    //             console.log('no hay madie logeado');
+    //             setIsloggedIn(false);
+    //         }
+    //         setCheking(false);
+    //     });
+    // },[dispatch])
     if(cheking){
         return(
             <>
