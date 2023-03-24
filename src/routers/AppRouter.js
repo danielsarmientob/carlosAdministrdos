@@ -17,8 +17,8 @@ import { HomeRouter } from './HomeRouter';
 
 export const AppRouter = () => {
     const dispatch = useDispatch();
-    const [cheking, setCheking] = useState(true);
-    const [isLoggedIn , setIsloggedIn] = useState(false);    
+    const [cheking, setCheking] = useState(false);
+    const [isLoggedIn , setIsloggedIn] = useState(true);    
     useEffect(() => {
         firebase.auth().onAuthStateChanged((user)=>{
             if(user?.uid){
